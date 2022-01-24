@@ -21,6 +21,10 @@
 
 ## Running Locally
 
+![img](https://i.imgur.com/TSN1P1O.png[/img])
+
+The products from Commerce.js need to have a **category**, **size** and **color** variant group for the filter menu to work.
+
 ```bash
 $ git clone https://github.com/andrewdoro/vestis-ecommerce.git
 $ cd vestis-ecommerce
