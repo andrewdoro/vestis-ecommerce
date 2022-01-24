@@ -21,7 +21,6 @@ const Navbar = () => {
   const { cart } = useSelector((state) => state.cart);
   const currentPage = location.pathname.split('/').slice(-1).toString();
   const mobileView = useMediaQuery('(max-width:900px)');
-  console.log(window.scrollY);
   const LogoText = () => {
     return (
       <IconButton
@@ -32,8 +31,7 @@ const Navbar = () => {
           '&:hover': {
             backgroundColor: 'transparent',
           },
-        }}
-      >
+        }}>
         <LogoIcon variant={0} sx={{ fontSize: 50, marginLeft: '8px' }} />
       </IconButton>
     );
@@ -47,8 +45,7 @@ const Navbar = () => {
           aria-label='menu'
           aria-haspopup='true'
           onClick={() => dispatch(setOpen())}
-          size='large'
-        >
+          size='large'>
           <MenuIcon />
         </IconButton>
         <Box sx={{ ml: 'auto', mr: 'auto' }}>
@@ -59,8 +56,7 @@ const Navbar = () => {
           to={'/cart'}
           sx={{
             color: currentPage === 'cart' ? 'black' : 'text.secondary',
-          }}
-        >
+          }}>
           <Badge badgeContent={cart.line_items.length} color='secondary' variant='dot'>
             {currentPage === 'cart' ? <ShoppingCartIcon /> : <ShoppingCartOutlinedIcon />}
           </Badge>
@@ -103,8 +99,7 @@ const Navbar = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           backgroundColor: 'white.main',
-        }}
-      >
+        }}>
         <LogoText />
         <Box
           sx={{
@@ -115,8 +110,7 @@ const Navbar = () => {
             display: 'flex',
             justifyContent: 'space-between',
             width: '110px',
-          }}
-        >
+          }}>
           {categories.map(({ name, slug }) => {
             return (
               <Typography
@@ -125,8 +119,7 @@ const Navbar = () => {
                 component={Link}
                 to={`/products/${slug}`}
                 color='inherit'
-                sx={textLineAnimation(slug)}
-              >
+                sx={textLineAnimation(slug)}>
                 {name}
               </Typography>
             );
@@ -143,8 +136,7 @@ const Navbar = () => {
               '&:hover': {
                 color: 'black',
               },
-            }}
-          >
+            }}>
             {currentPage === 'about' ? <ArticleIcon /> : <ArticleOutlinedIcon />}
           </IconButton>
           <IconButton
@@ -156,8 +148,7 @@ const Navbar = () => {
               ':hover ': {
                 color: 'black',
               },
-            }}
-          >
+            }}>
             <Badge badgeContent={!cart.line_items.length ? 0 : cart.line_items.length} color='secondary' variant='dot'>
               {currentPage === 'cart' ? <ShoppingCartIcon /> : <ShoppingCartOutlinedIcon />}
             </Badge>
@@ -175,8 +166,7 @@ const Navbar = () => {
           initial={{ y: -500 }}
           animate={{ y: 0 }}
           exit={{ x: -500 }}
-          transition={{ ease: 'easeInOut', duration: '0.5' }}
-        >
+          transition={{ ease: 'easeInOut', duration: '0.5' }}>
           <Typography
             sx={{
               position: 'absolute',
@@ -193,8 +183,7 @@ const Navbar = () => {
               fontSize: 90,
               textTransform: 'uppercase',
               display: ['none', 'none', 'none', 'none', 'block'],
-            }}
-          >
+            }}>
             {currentPage === ''
               ? 'VESTIS'
               : location.pathname.split('/').slice(1, 2).toString() !== 'product' && currentPage}
@@ -209,8 +198,7 @@ const Navbar = () => {
               height: '56px',
               pl: ['24px', '24px', 0],
               pr: ['24px', '24px', 0],
-            }}
-          >
+            }}>
             {mobileView ? displayMobile() : displayDesktop()}
           </Toolbar>
         </AppBar>
